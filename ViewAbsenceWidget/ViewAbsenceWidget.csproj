@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <PostBuildEvent>echo "post build"
+echo "$(ProjectPath)"
+echo "$(TargetFileName)"
+echo "$(SolutionPath)"
+echo "$(ProjectName)"
+echo "$(DevEnvDir)"</PostBuildEvent>
+  </PropertyGroup>
+
+  <!--
+  $(TargetPath) to $(SolutionDir)WidgetDashboard.WebHost$(OutDir)"
+  -->
+  
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy /Y &quot;$(TargetPath)&quot; &quot;$(SolutionDir)WidgetDashboard.WebHost\$(OutDir)$(ProjectName).dll&quot;"></Exec>
+  </Target>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WidgetDashboard.DomainModel\WidgetDashboard.DomainModel.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

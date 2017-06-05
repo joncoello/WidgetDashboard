@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WidgetDashboard.DomainModel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WidgetDashboard.MefRepositories", "WidgetDashboard.MefRepositories\WidgetDashboard.MefRepositories.csproj", "{E329E066-7631-4394-9CC0-AC2D5CEEE9C1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Widgets", "Widgets", "{1BB048BD-6E38-4537-A9E4-E27CC6C6AF2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewAbsenceWidget", "ViewAbsenceWidget\ViewAbsenceWidget.csproj", "{12C87E79-1267-42F3-A00F-0427F32C9906}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +31,15 @@ Global
 		{E329E066-7631-4394-9CC0-AC2D5CEEE9C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E329E066-7631-4394-9CC0-AC2D5CEEE9C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E329E066-7631-4394-9CC0-AC2D5CEEE9C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C87E79-1267-42F3-A00F-0427F32C9906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C87E79-1267-42F3-A00F-0427F32C9906}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C87E79-1267-42F3-A00F-0427F32C9906}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C87E79-1267-42F3-A00F-0427F32C9906}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{12C87E79-1267-42F3-A00F-0427F32C9906} = {1BB048BD-6E38-4537-A9E4-E27CC6C6AF2C}
 	EndGlobalSection
 EndGlobal

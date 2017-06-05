@@ -10,6 +10,10 @@ namespace WidgetDashboard.WebHost.Controllers
     {
         public IActionResult Index()
         {
+
+            var widgetRepository = new WidgetDashboard.MefRepositories.WidgetRepository();
+            var widgetModel = widgetRepository.GetWidgets();
+
             return View();
         }
     }
