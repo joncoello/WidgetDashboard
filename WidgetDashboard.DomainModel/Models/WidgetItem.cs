@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace WidgetDashboard.DomainModel.Models
 {
@@ -8,6 +9,8 @@ namespace WidgetDashboard.DomainModel.Models
         public string Template { get; set; }
         public string Script { get; set; }
         public string Style { get; set; }
-
+        public List<string> ScriptReferences { get; set; }
+        public List<string> StyleReferences { get; set; }
+        public WidgetLayout Layout { get; set; }
     }
 }

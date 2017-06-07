@@ -1,18 +1,84 @@
-
+@model WidgetDashboard.DomainModel.Models.WidgetModel
 @{
-    Layout = null;
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+@section styles{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.3.0/gridstack.css" integrity="sha256-62TVvQ65tYq9mhgBoBcHn7Ix4HA8d2+wUBEtYH/BtIY=" crossorigin="anonymous" />
+    @foreach (var styleReference in Model.Widgets.SelectMany(w => w.StyleReferences).Distinct())
+    {
+        @Html.Raw("    " + styleReference)
+    }
+    <!-- widget scripts -->
+    @foreach (var widget in Model.Widgets)
+    {
+        <style>
+            @Html.Raw(widget.Style)
+        </style>
+    }
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Home</title>
-</head>
-<body>
-    <h1>
-        Home
-    </h1>
-</body>
-</html>
+<div>
+    
+    <div>
+        <button id="refresh">refresh</button>
+        <button id="getLayout">get layout</button>
+        <button id="saveLayout">save layout</button>
+    </div>
+
+    <!-- widgets -->
+    <div class="grid-stack">
+
+        @foreach (var widget in Model.Widgets)
+        {
+            <div class="grid-stack-item"
+                 data-gs-x="@widget.Layout.X" data-gs-y="@widget.Layout.Y"
+                 data-gs-width="@widget.Layout.Widh" data-gs-height="@widget.Layout.Height">
+                <div class="grid-stack-item-content">
+                    @Html.Raw(widget.Template)
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>
+
+@section scripts{
+
+    <!-- grid stack -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.3.0/gridstack.all.js"></script>
+    <script src="~/Scripts/widget-component.js"></script>
+    <script src="~/Scripts/main.js"></script>
+
+    <!-- libraries-->
+    @foreach (var scriptReference in Model.Widgets.SelectMany(w => w.ScriptReferences).Distinct())
+    {
+        @Html.Raw("    " + scriptReference)
+    }
+
+
+    <!-- grid stack -->
+    <script type="text/javascript">
+        $(function () {
+            var options = {
+                cell_height: 80,
+                vertical_margin: 10
+            };
+            $('.grid-stack').gridstack(options);
+        });
+    </script>
+
+    <!-- widget scripts -->
+    @foreach (var widget in Model.Widgets)
+    {
+        <script>
+            @Html.Raw(widget.Script)
+        </script>
+    }
+
+}

@@ -59,10 +59,10 @@ namespace WidgetDashboard.MefRepositories
             {
                 Template = GetBody(widget.GetHtml()),
                 Script = widget.GetScript(),
-                //ScriptReferences = widget.GetScriptReferences(),
+                ScriptReferences = widget.GetScriptReferences(),
                 Style = widget.GetStyle(),
-                //StyleReferences = widget.GetStyleReferences(),
-                //Layout = widget.Getlayout()
+                StyleReferences = widget.GetStyleReferences(),
+                Layout = widget.Getlayout()
             };
 
         }

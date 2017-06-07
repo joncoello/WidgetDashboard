@@ -13,6 +13,10 @@ echo "$(DevEnvDir)"</PostBuildEvent>
   <!--
   $(TargetPath) to $(SolutionDir)WidgetDashboard.WebHost$(OutDir)"
   -->
+
+  <Target Name="PreBuild" AfterTargets="PreBuildEvent">
+    <Exec Command="&quot;C:\Program Files (x86)\Microsoft SDKs\TypeScript\2.1\tsc.exe&quot;"></Exec>
+  </Target>
   
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="copy /Y &quot;$(TargetPath)&quot; &quot;$(SolutionDir)WidgetDashboard.WebHost\$(OutDir)$(ProjectName).dll&quot;"></Exec>

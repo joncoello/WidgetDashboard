@@ -14,7 +14,7 @@ namespace WidgetDashboard.WebHost.Controllers
             var widgetRepository = new WidgetDashboard.MefRepositories.WidgetRepository();
             var widgetModel = widgetRepository.GetWidgets();
 
-            return View();
+            return View(widgetModel);
         }
     }
 }

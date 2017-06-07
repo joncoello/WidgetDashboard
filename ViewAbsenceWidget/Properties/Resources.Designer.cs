@@ -65,25 +65,84 @@ namespace ViewAbsenceWidget.Properties {
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
         ///&lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
         ///    &lt;title&gt;&lt;/title&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
+        ///
+        ///    &lt;link href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; /&gt;
+        ///    &lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot; /&gt;
+        ///
         ///&lt;/head&gt;
         ///&lt;body&gt;
         ///
-        ///    &lt;!--bodystart--&gt;
-        ///    &lt;div&gt;
-        ///        &lt;h1&gt;
-        ///            Hello World
-        ///        &lt;/h1&gt;
-        ///    &lt;/div&gt;
-        ///    &lt;!--bodyend--&gt;
+        ///    &lt;div style=&quot;width: 600px;&quot;&gt;
         ///
-        ///&lt;/body&gt;
-        ///&lt;/html&gt;.
+        ///        &lt;!--bodystart--&gt;
+        ///        &lt;div id=&quot;this&quot; class=&quot;holiday-widget&quot;&gt;&lt;/div&gt;
+        ///        &lt;!--bodyend--&gt;
+        ///
+        ///    &lt;/div&gt;
+        ///
+        ///    &lt;script src=&quot;https://code.jquery.com/jquery-3.2.1.min.js&quot;&gt;&lt;/script&gt;
+        ///    &lt;script src=&quot;/scr [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string index {
             get {
                 return ResourceManager.GetString("index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (function () {
+        ///    var widgetElement1 = document.getElementById(&apos;this&apos;);
+        ///    var widget1 = new WidgetComponent(widgetElement1, {
+        ///        loadData: getHolidayData,
+        ///        saveCustomisation: function (customisation) {
+        ///            // save currently selected employee id
+        ///            customisation[&apos;selectedEmployeeID&apos;] = 27;
+        ///        },
+        ///        restoreCustomisation: function (customisation) {
+        ///            // get employee id from customisation or use default
+        ///            var defaultEmployeeID = -1;
+        ///       [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string main {
+            get {
+                return ResourceManager.GetString("main", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .holiday-widget {
+        ///    font-size: 0.7em;
+        ///}
+        ///
+        ///.holiday-widget &gt; .table &gt; tbody &gt; tr &gt; td, .table &gt; tbody &gt; tr &gt; th,
+        ///.holiday-widget &gt; .table &gt; tfoot &gt; tr &gt; td, .table &gt; tfoot &gt; tr &gt; th, 
+        ///.holiday-widget &gt; .table &gt; thead &gt; tr &gt; td, .table &gt; thead &gt; tr &gt; th {
+        ///    padding: 2px;
+        ///    text-align: center;
+        ///}
+        ///
+        ///.weekend {
+        ///    background-color: gray;
+        ///}
+        ///
+        ///.nonday {
+        ///    background-color: lightgray;
+        ///}
+        ///
+        ///.holiday {
+        ///    background-color: paleturquoise;
+        ///}
+        ///
+        ///.daycol {
+        ///    min-width: 15px;
+        ///}
+        ///.
+        /// </summary>
+        internal static string style {
+            get {
+                return ResourceManager.GetString("style", resourceCulture);
             }
         }
     }
