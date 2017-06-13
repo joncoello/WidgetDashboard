@@ -173,13 +173,18 @@
 
             var clicked = $(event.target);
             var templateElement = clicked.find('.widget-template').first();
-            var template = templateElement.children().first().html();
+            var template = templateElement.html();
 
             var grid = $('#mainArea .grid-stack').data('gridstack');
             
             var widgetMarkup = "<div class=\"grid-stack-item\"><div class=\"grid-stack-item-content\">" + template + "</div></div>";
 
             var widget = grid.addWidget(widgetMarkup, 0, 0, 2, 2);
+            var elementToUse = $(widget).find('.widget').first();
+            
+            WidgetManager.Instance.createWidget(elementToUse, templateElement.attr("name"));
+
+            WidgetManager.Instance.refreshWidgets();
 
         });
 

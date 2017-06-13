@@ -51,9 +51,9 @@ var WidgetManager = (function () {
      * Create an instance of a widget.
      * @param widget    the widget to register.
      */
-    WidgetManager.prototype.createWidget = function (element, widgetID) {
+    WidgetManager.prototype.createWidget = function (element, widgetName) {
         this._lastInstanceID++;
-        var widget = this.Widgets.filter(function (w) { return w.id === widgetID; })[0];
+        var widget = this.Widgets.filter(function (w) { return w.name === widgetName; })[0];
         var instance = new WidgetInstance(this._lastInstanceID, widget, element);
         this.Widgets.push(widget);
         instance.widgetType.loadData(element);

@@ -12,7 +12,7 @@ namespace DashboardWidget
         {
             get
             {
-                return "My Widget";
+                return "Dashboard Widget";
             }
         }
 

@@ -77,9 +77,9 @@ class WidgetManager {
      * Create an instance of a widget.
      * @param widget    the widget to register.
      */
-    public createWidget(element: Element, widgetID: number): void {
+    public createWidget(element: Element, widgetName: string): void {
         this._lastInstanceID++;
-        var widget = this.Widgets.filter(w => w.id === widgetID)[0];
+        var widget = this.Widgets.filter(w => w.name === widgetName)[0];
         var instance = new WidgetInstance(this._lastInstanceID, widget, element);
         this.Widgets.push(widget);
         instance.widgetType.loadData(element);

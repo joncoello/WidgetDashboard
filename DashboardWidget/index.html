@@ -13,8 +13,13 @@
     <div style="width: 600px;">
 
         <!--bodystart-->
-        <div id="this">
-            <h1>Hello Widget</h1>
+        <div id="this" class="widget">
+            <div>
+                <h1>Hello Widget</h1>
+            </div>
+            <div>
+                <button>click me</button>
+            </div>
         </div>
         <!--bodyend-->
 
@@ -23,6 +28,13 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="/scripts/widget-component.js"></script> <!-- from access npm -->
     <script src="/scripts/script.js"></script> <!-- widget developer -->
+
+    <script>
+
+        var e = document.getElementById('this');
+        WidgetManager.Instance.createWidget(e, 'Dashboard Widget');
+
+    </script>
 
 </body>
 </html>

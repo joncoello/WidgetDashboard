@@ -23,8 +23,10 @@ var WidgetInstance = (function () {
 */
 var WidgetManager = (function () {
     function WidgetManager() {
-        this._widgets = new Array();
-        this._instances = new Array();
+        this.Widgets = new Array();
+        this.Instances = new Array();
+        this._lastWidgetID = 0;
+        this._lastInstanceID = 0;
     }
     Object.defineProperty(WidgetManager, "Instance", {
         /**
@@ -43,24 +45,24 @@ var WidgetManager = (function () {
     WidgetManager.prototype.registerWidget = function (widget) {
         this._lastWidgetID++;
         widget.id = this._lastWidgetID;
-        this._widgets.push(widget);
+        this.Widgets.push(widget);
     };
     /**
      * Create an instance of a widget.
      * @param widget    the widget to register.
      */
-    WidgetManager.prototype.createWidget = function (element, widgetID) {
+    WidgetManager.prototype.createWidget = function (element, widgetName) {
         this._lastInstanceID++;
-        var widget = this._widgets.filter(function (w) { return w.id === widgetID; })[0];
+        var widget = this.Widgets.filter(function (w) { return w.name === widgetName; })[0];
         var instance = new WidgetInstance(this._lastInstanceID, widget, element);
-        this._widgets.push(widget);
+        this.Widgets.push(widget);
         instance.widgetType.loadData(element);
     };
     /**
      * Refresh data of all widgets registered.
      */
     WidgetManager.prototype.refreshWidgets = function () {
-        this._instances.forEach(function (i) {
+        this.Instances.forEach(function (i) {
             i.widgetType.loadData(i.element);
         });
     };
@@ -69,7 +71,7 @@ var WidgetManager = (function () {
      */
     WidgetManager.prototype.getLayout = function () {
         var widgetsInfo = [];
-        this._instances.forEach(function (i) {
+        this.Instances.forEach(function (i) {
             var e = i.element.parentElement.parentElement;
             var id = i.element.id;
             var x = e.getAttribute('data-gs-x').valueOf();

@@ -4,9 +4,16 @@ const gulp = require('gulp');
 gulp.task('copy', function () {
     gulp.src(
         [
+            'styles.css',
             'index.html',
         ])
         .pipe(gulp.dest('wwwroot'));
+
+    gulp.src(
+        [
+            'scripts/*.js',
+        ])
+        .pipe(gulp.dest('wwwroot/scripts'));
 
     return gulp.src(
       [

@@ -21,17 +21,6 @@
 <!-- widgets -->
 <div class="grid-stack">
 
-    @foreach (var widget in Model.Widgets)
-    {
-        <div class="grid-stack-item"
-             data-gs-x="@widget.Layout.X" data-gs-y="@widget.Layout.Y"
-             data-gs-width="@widget.Layout.Widh" data-gs-height="@widget.Layout.Height">
-            <div class="grid-stack-item-content">
-                @Html.Raw(widget.Template)
-            </div>
-        </div>
-    }
-
 </div>
 
 @section toolboxitems{
@@ -40,7 +29,7 @@
     {
         <div class="toolbox-item">
             @widget.Name
-            <div class="widget-template" style="display: none">
+            <div class="widget-template" name="@widget.Name" style="display: none">
                 @Html.Raw(widget.Template)
             </div>
         </div>
