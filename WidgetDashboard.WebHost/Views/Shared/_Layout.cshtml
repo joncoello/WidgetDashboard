@@ -179,7 +179,10 @@
             
             var widgetMarkup = "<div class=\"grid-stack-item\"><div class=\"grid-stack-item-content\">" + template + "</div></div>";
 
-            var widget = grid.addWidget(widgetMarkup, 0, 0, 2, 2);
+            var width = templateElement.attr("defaultwidth");
+            var height = templateElement.attr("defaultheight");
+
+            var widget = grid.addWidget(widgetMarkup, 0, 0, width, height);
             var elementToUse = $(widget).find('.widget').first();
             
             WidgetManager.Instance.createWidget(elementToUse, templateElement.attr("name"));

@@ -29,7 +29,7 @@
     {
         <div class="toolbox-item">
             @widget.Name
-            <div class="widget-template" name="@widget.Name" style="display: none">
+            <div class="widget-template" name="@widget.Name" defaultwidth="@widget.Layout.Widh" defaultheight="@widget.Layout.Height" style="display: none">
                 @Html.Raw(widget.Template)
             </div>
         </div>
