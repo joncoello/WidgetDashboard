@@ -9,6 +9,12 @@ namespace WidgetDashboard.DomainModel.Models
     /// </summary>
     public interface IWidget
     {
+
+        /// <summary>
+        /// The name displayed in the toolbox
+        /// </summary>
+        string Name { get; }
+
         /// <summary>
         /// get html of widget
         /// </summary>

@@ -57,6 +57,7 @@ namespace WidgetDashboard.MefRepositories
 
             return new WidgetItem
             {
+                Name = widget.Name,
                 Template = GetBody(widget.GetHtml()),
                 Script = widget.GetScript(),
                 ScriptReferences = widget.GetScriptReferences(),

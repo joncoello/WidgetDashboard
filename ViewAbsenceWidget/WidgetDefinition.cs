@@ -8,6 +8,15 @@ namespace ViewAbsenceWidget
 {
     public class WidgetDefinition : IWidget
     {
+
+        public string Name
+        {
+            get
+            {
+                return "View Absence";
+            }
+        }
+
         public string GetHtml()
         {
             return ViewAbsenceWidget.Properties.Resources.index;

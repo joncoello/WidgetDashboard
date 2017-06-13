@@ -12,5 +12,6 @@ namespace WidgetDashboard.DomainModel.Models
         public List<string> ScriptReferences { get; set; }
         public List<string> StyleReferences { get; set; }
         public WidgetLayout Layout { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -34,6 +34,16 @@
 
 </div>
 
+@section toolboxitems{
+
+    @foreach (var widget in Model.Widgets)
+    {
+        <div class="toolbox-item">
+            @widget.Name
+        </div>
+    }
+}
+
 
 @section scripts{
 

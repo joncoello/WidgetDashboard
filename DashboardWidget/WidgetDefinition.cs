@@ -8,6 +8,14 @@ namespace DashboardWidget
 {
     public class WidgetDefinition : IWidget
     {
+        public string Name
+        {
+            get
+            {
+                return "My Widget";
+            }
+        }
+
         public string GetHtml()
         {
             return DashboardWidget.Properties.Resources.index;
