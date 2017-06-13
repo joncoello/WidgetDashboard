@@ -1,8 +1,9 @@
 ﻿(function () {
 
-    let widgetElement1: Element = document.getElementById('this');
-    let widget1: WidgetComponent = new WidgetComponent(widgetElement1,
+    let widget1: WidgetComponent =
         {
+            id: 0,
+            name: 'View Absence',
             loadData: getHolidayData,
             saveCustomisation: (customisation: { [id: string]: any }): void => {
 
@@ -17,8 +18,7 @@
                 let employeeID = customisation['selectedEmployeeID'] === undefined ? defaultEmployeeID : <number>customisation['selectedEmployeeID'];
 
             }
-        }
-    );
+        };
 
     function getHolidayData(e: Element): void {
         $.get('http://localhost:14545/api/holiday', function (data) {
@@ -116,5 +116,5 @@
     }
 
     WidgetManager.Instance.registerWidget(widget1);
-
+    
 })();

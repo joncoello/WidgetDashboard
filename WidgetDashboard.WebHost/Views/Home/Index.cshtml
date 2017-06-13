@@ -40,6 +40,9 @@
     {
         <div class="toolbox-item">
             @widget.Name
+            <div class="widget-template" style="display: none">
+                @Html.Raw(widget.Template)
+            </div>
         </div>
     }
 }

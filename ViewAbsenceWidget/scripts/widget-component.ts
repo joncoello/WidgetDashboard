@@ -1,23 +1,11 @@
 /**
-* Main component to be wrapped around widget element
+* Widget settings including event callbacks
 */
 class WidgetComponent {
 
-    /**
-     * Register a widget with the manager.
-     * @param element    The html element to attach the widget to.
-     * @param settings    The settings including callbacks to be applied to the widget.
-     */
-    constructor(public element: Element, public settings: WidgetSettings) {
-        settings.loadData(element);
-    }
+    public id: number;
 
-}
-
-/**
-* Widget settings including event callbacks
-*/
-class WidgetSettings {
+    constructor(public name: string) { }
 
     /**
     * call into widget to load the data
@@ -39,17 +27,22 @@ class WidgetSettings {
 }
 
 /**
+* An individual instance of a widget on a dashboard
+*/
+class WidgetInstance {
+    
+    constructor(public id: number, public widgetType: WidgetComponent, public element: Element) { }
+    
+}
+
+/**
 * Singleton for managing widgets on a page widgets register themselves then can be centrally managed.
 */
 class WidgetManager {
 
     // singleton implementation
     private static _instance: WidgetManager;
-
-    private constructor() {
-        this._widgets = new Array<WidgetComponent>();
-    }
-
+    
     /**
      * Singleton property
      */
@@ -58,22 +51,46 @@ class WidgetManager {
     }
     
     // registry of widgets on a page
-    private _widgets: Array<WidgetComponent>
-    
+    private _lastWidgetID: number;
+    public Widgets: Array<WidgetComponent>
+    private _lastInstanceID: number;
+    public Instances: Array<WidgetInstance>
+
+    private constructor() {
+        this.Widgets = new Array<WidgetComponent>();
+        this.Instances = new Array<WidgetInstance>();
+        this._lastWidgetID = 0;
+        this._lastInstanceID = 0;
+    }
+
     /**
      * Register a widget with the manager.
      * @param widget    the widget to register.
      */
     public registerWidget(widget: WidgetComponent): void {
-        this._widgets.push(widget);
+        this._lastWidgetID++;
+        widget.id = this._lastWidgetID;
+        this.Widgets.push(widget);
+    }
+
+    /**
+     * Create an instance of a widget.
+     * @param widget    the widget to register.
+     */
+    public createWidget(element: Element, widgetID: number): void {
+        this._lastInstanceID++;
+        var widget = this.Widgets.filter(w => w.id === widgetID)[0];
+        var instance = new WidgetInstance(this._lastInstanceID, widget, element);
+        this.Widgets.push(widget);
+        instance.widgetType.loadData(element);
     }
 
     /**
      * Refresh data of all widgets registered.
      */
     public refreshWidgets(): void {
-        this._widgets.forEach((w: WidgetComponent) => {
-            w.settings.loadData(w.element);
+        this.Instances.forEach((i: WidgetInstance) => {
+            i.widgetType.loadData(i.element);
         });
     }
 
@@ -82,10 +99,10 @@ class WidgetManager {
      */
     public getLayout(): string {
         var widgetsInfo = []
-        this._widgets.forEach((w: WidgetComponent) => {
+        this.Instances.forEach((i: WidgetInstance) => {
 
-            var e = w.element.parentElement.parentElement;
-            var id = w.element.id;
+            var e = i.element.parentElement.parentElement;
+            var id = i.element.id;
             var x = e.getAttribute('data-gs-x').valueOf();
             var y = e.getAttribute('data-gs-y').valueOf();
             var width = e.getAttribute('data-gs-width').valueOf();

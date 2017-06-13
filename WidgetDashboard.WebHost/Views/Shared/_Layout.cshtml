@@ -171,12 +171,15 @@
         $('#toolbox .toolbox-item').click(function () {
             console.log('toolbox item clicked: ' + event.target);
 
+            var clicked = $(event.target);
+            var templateElement = clicked.find('.widget-template').first();
+            var template = templateElement.children().first().html();
+
             var grid = $('#mainArea .grid-stack').data('gridstack');
+            
+            var widgetMarkup = "<div class=\"grid-stack-item\"><div class=\"grid-stack-item-content\">" + template + "</div></div>";
 
-            var content = "<h1>Test</h1>"
-            var widgetMarkup = "<div class=\"grid-stack-item\"><div class=\"grid-stack-item-content\">" + content + "</div></div>";
-
-            grid.addWidget(widgetMarkup, 0, 0, 2, 2);
+            var widget = grid.addWidget(widgetMarkup, 0, 0, 2, 2);
 
         });
 

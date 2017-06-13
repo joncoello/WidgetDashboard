@@ -1,26 +1,22 @@
 /**
-* Main component to be wrapped around widget element
+* Widget settings including event callbacks
 */
 var WidgetComponent = (function () {
-    /**
-     * Register a widget with the manager.
-     * @param element    The html element to attach the widget to.
-     * @param settings    The settings including callbacks to be applied to the widget.
-     */
-    function WidgetComponent(element, settings) {
-        this.element = element;
-        this.settings = settings;
-        settings.loadData(element);
+    function WidgetComponent(name) {
+        this.name = name;
     }
     return WidgetComponent;
 }());
 /**
-* Widget settings including event callbacks
+* An individual instance of a widget on a dashboard
 */
-var WidgetSettings = (function () {
-    function WidgetSettings() {
+var WidgetInstance = (function () {
+    function WidgetInstance(id, widgetType, element) {
+        this.id = id;
+        this.widgetType = widgetType;
+        this.element = element;
     }
-    return WidgetSettings;
+    return WidgetInstance;
 }());
 /**
 * Singleton for managing widgets on a page widgets register themselves then can be centrally managed.
@@ -28,6 +24,7 @@ var WidgetSettings = (function () {
 var WidgetManager = (function () {
     function WidgetManager() {
         this._widgets = new Array();
+        this._instances = new Array();
     }
     Object.defineProperty(WidgetManager, "Instance", {
         /**
@@ -44,14 +41,27 @@ var WidgetManager = (function () {
      * @param widget    the widget to register.
      */
     WidgetManager.prototype.registerWidget = function (widget) {
+        this._lastWidgetID++;
+        widget.id = this._lastWidgetID;
         this._widgets.push(widget);
+    };
+    /**
+     * Create an instance of a widget.
+     * @param widget    the widget to register.
+     */
+    WidgetManager.prototype.createWidget = function (element, widgetID) {
+        this._lastInstanceID++;
+        var widget = this._widgets.filter(function (w) { return w.id === widgetID; })[0];
+        var instance = new WidgetInstance(this._lastInstanceID, widget, element);
+        this._widgets.push(widget);
+        instance.widgetType.loadData(element);
     };
     /**
      * Refresh data of all widgets registered.
      */
     WidgetManager.prototype.refreshWidgets = function () {
-        this._widgets.forEach(function (w) {
-            w.settings.loadData(w.element);
+        this._instances.forEach(function (i) {
+            i.widgetType.loadData(i.element);
         });
     };
     /**
@@ -59,9 +69,9 @@ var WidgetManager = (function () {
      */
     WidgetManager.prototype.getLayout = function () {
         var widgetsInfo = [];
-        this._widgets.forEach(function (w) {
-            var e = w.element.parentElement.parentElement;
-            var id = w.element.id;
+        this._instances.forEach(function (i) {
+            var e = i.element.parentElement.parentElement;
+            var id = i.element.id;
             var x = e.getAttribute('data-gs-x').valueOf();
             var y = e.getAttribute('data-gs-y').valueOf();
             var width = e.getAttribute('data-gs-width').valueOf();

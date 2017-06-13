@@ -1,6 +1,7 @@
 (function () {
-    var widgetElement1 = document.getElementById('this');
-    var widget1 = new WidgetComponent(widgetElement1, {
+    var widget1 = {
+        id: 0,
+        name: 'View Absence',
         loadData: getHolidayData,
         saveCustomisation: function (customisation) {
             // save currently selected employee id
@@ -11,7 +12,7 @@
             var defaultEmployeeID = -1;
             var employeeID = customisation['selectedEmployeeID'] === undefined ? defaultEmployeeID : customisation['selectedEmployeeID'];
         }
-    });
+    };
     function getHolidayData(e) {
         $.get('http://localhost:14545/api/holiday', function (data) {
             console.log(e);
