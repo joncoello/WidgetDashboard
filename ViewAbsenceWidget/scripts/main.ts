@@ -39,7 +39,7 @@
                 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
             ];
 
-            $(e).append('<table>');
+            $(e).append('<table class="table table-condensed">');
             $('table', e).addClass('table table-bordered');
             $('table', e).append('<thead>');
 

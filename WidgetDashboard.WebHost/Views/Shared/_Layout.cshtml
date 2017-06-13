@@ -3,11 +3,194 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @RenderSection("styles", required: false)
+    
 
 </head>
 <body>
-    @RenderBody()
+    
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="font-awesome.css" />
+    <link rel="stylesheet" href="gridstack.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    @RenderSection("styles", required: false)
+</head>
+<body>
+
+    <div class="container-fluid">
+
+        <!-- top nav bar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <span class="burger">
+                    burger...
+                </span>
+
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Brand</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <!-- left nav bar -->
+        <div class="pull-left sidebar">
+            <div class="list-group">
+                <a class="list-group-item" href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
+                <a class="list-group-item" href="#"><i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp; Library</a>
+                <a class="list-group-item" href="#"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp; Applications</a>
+                <a class="list-group-item" href="#"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp; Settings</a>
+            </div>
+        </div>
+
+        <!-- right nav bar -->
+        <div id="toolbox" class="pull-right sidebar sidebar-right">
+
+            <h4>Toolbox</h4>
+            <p>click to add</p>
+
+            <div class="toolbox-list">
+
+                <div class="toolbox-item">
+                    Item 1
+                </div>
+
+                <div class="toolbox-item">
+                    Item 2
+                </div>
+
+                <div class="toolbox-item">
+                    Item 3
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <!-- main area -->
+        <div id="mainArea" class="container-fluid container-main">
+            @RenderBody()
+            @*<div class="grid-stack">
+
+                <div class="grid-stack-item"
+                     data-gs-x="0" data-gs-y="0"
+                     data-gs-width="2" data-gs-height="2">
+                    <div class="grid-stack-item-content">
+                        <h1>Widget 1</h1>
+                    </div>
+                </div>
+
+                <div class="grid-stack-item"
+                     data-gs-x="0" data-gs-y="0"
+                     data-gs-width="2" data-gs-height="2">
+                    <div class="grid-stack-item-content">
+                        Widget 2
+                    </div>
+                </div>
+
+                <div class="grid-stack-item"
+                     data-gs-x="0" data-gs-y="0"
+                     data-gs-width="2" data-gs-height="2">
+                    <div class="grid-stack-item-content">
+                        Widget 3
+                    </div>
+                </div>
+
+            </div>*@
+        </div>
+    </div>
+
+    <!-- vendor -->
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script src="bootstrap.js"></script>
+    <!--<script src="lodash.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+    <script src="gridstack.all.js"></script>
+
     @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        $(function () {
+            var options = {
+                cell_height: 40,
+                vertical_margin: 10,
+                horizontal_margin: 10,
+                float: true,
+                acceptWidgets: true,
+                alwaysShowResizeHandle: true,
+                animate: true
+            };
+            $('.grid-stack').gridstack(options);
+        });
+
+        $('#toolbox .toolbox-item').click(function () {
+            console.log('toolbox item clicked: ' + event.target);
+
+            var grid = $('#mainArea .grid-stack').data('gridstack');
+
+            var content = "<h1>Test</h1>"
+            var widgetMarkup = "<div class=\"grid-stack-item\"><div class=\"grid-stack-item-content\">" + content + "</div></div>";
+
+            grid.addWidget(widgetMarkup, 0, 0, 2, 2);
+
+        });
+
+    </script>
+
 </body>
 </html>

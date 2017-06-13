@@ -1,0 +1,51 @@
+﻿body {
+    padding-top: 50px;
+}
+
+.sidebar {
+    position: absolute;
+    border: 1px solid black;
+    width: 150px;
+    min-height: calc(100% - 50px)
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.container-main {
+    padding-left: 150px;
+    padding-right: 300px;
+}
+
+.sidebar-right {
+    right: 0;
+    left: auto;
+    width: 300px;
+    padding-left: 10px;
+}
+
+.burger {
+    float: left;
+    vertical-align: middle;
+    width: 150px;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.grid-stack-item {
+    background-color: lightgray;
+}
+
+.toolbox-item {
+    border: 1px solid gray;
+    height: 50px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.grid-stack {
+    font-size: 0.6em;
+}

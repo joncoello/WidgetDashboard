@@ -5,7 +5,6 @@
 }
 
 @section styles{
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.3.0/gridstack.css" integrity="sha256-62TVvQ65tYq9mhgBoBcHn7Ix4HA8d2+wUBEtYH/BtIY=" crossorigin="anonymous" />
     @foreach (var styleReference in Model.Widgets.SelectMany(w => w.StyleReferences).Distinct())
     {
         @Html.Raw("    " + styleReference)
@@ -19,31 +18,22 @@
     }
 }
 
-<div>
-    
-    <div>
-        <button id="refresh">refresh</button>
-        <button id="getLayout">get layout</button>
-        <button id="saveLayout">save layout</button>
-    </div>
+<!-- widgets -->
+<div class="grid-stack">
 
-    <!-- widgets -->
-    <div class="grid-stack">
-
-        @foreach (var widget in Model.Widgets)
-        {
-            <div class="grid-stack-item"
-                 data-gs-x="@widget.Layout.X" data-gs-y="@widget.Layout.Y"
-                 data-gs-width="@widget.Layout.Widh" data-gs-height="@widget.Layout.Height">
-                <div class="grid-stack-item-content">
-                    @Html.Raw(widget.Template)
-                </div>
+    @foreach (var widget in Model.Widgets)
+    {
+        <div class="grid-stack-item"
+             data-gs-x="@widget.Layout.X" data-gs-y="@widget.Layout.Y"
+             data-gs-width="@widget.Layout.Widh" data-gs-height="@widget.Layout.Height">
+            <div class="grid-stack-item-content">
+                @Html.Raw(widget.Template)
             </div>
-        }
-
-    </div>
+        </div>
+    }
 
 </div>
+
 
 @section scripts{
 
