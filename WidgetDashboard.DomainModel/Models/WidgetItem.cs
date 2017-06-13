@@ -13,5 +13,11 @@ namespace WidgetDashboard.DomainModel.Models
         public List<string> StyleReferences { get; set; }
         public WidgetLayout Layout { get; set; }
         public string Name { get; set; }
+
+        public WidgetItem()
+        {
+            ID = Guid.NewGuid();
+        }
+
     }
 }

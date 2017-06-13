@@ -34,8 +34,16 @@
 }
 
 .grid-stack-item {
-    background-color: lightgray;
+    border: 1px solid lightgray;
 }
+
+.grid-stack-item-content {
+    margin-top: 10px !important;
+}
+
+    .grid-stack-item-content, .grid-stack-item-content > div {
+        overflow: hidden !important;
+    }
 
 .toolbox-item {
     border: 1px solid gray;
@@ -44,8 +52,4 @@
     margin-right: 10px;
     text-align: center;
     padding-top: 10px;
-}
-
-.grid-stack {
-    font-size: 0.6em;
 }

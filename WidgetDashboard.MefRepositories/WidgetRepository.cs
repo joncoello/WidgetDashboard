@@ -55,7 +55,7 @@ namespace WidgetDashboard.MefRepositories
         private WidgetItem CreateWidget(IWidget widget)
         {
 
-            return new WidgetItem
+            var widgetItem = new WidgetItem
             {
                 Name = widget.Name,
                 Template = GetBody(widget.GetHtml()),
@@ -66,6 +66,16 @@ namespace WidgetDashboard.MefRepositories
                 Layout = widget.Getlayout()
             };
 
+            widgetItem.Template = ReplaceThisWithID(widgetItem.Template, widgetItem.ID);
+            widgetItem.Script = ReplaceThisWithID(widgetItem.Script, widgetItem.ID);
+
+            return widgetItem;
+
+        }
+
+        private string ReplaceThisWithID(string text, Guid ID)
+        {
+            return text.Replace("this", ID.ToString());
         }
 
         private string GetBody(string html)
