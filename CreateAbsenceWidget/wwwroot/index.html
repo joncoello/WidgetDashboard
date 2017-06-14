@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div style="width: 600px;">
+
+        <!--bodystart-->
+        <h2>Enter Holiday</h2>
+
+        <form id="this" class="widget">
+
+            <div class="form-group">
+                <label for="nameInput">Dates</label>
+                <input class="form-control" name="daterange" type="text" />
+            </div>
+
+            <button class="btn btn-primary" type="button">Submit</button>
+
+        </form>
+        <!--bodyend-->
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/scripts/widget-component.js"></script> <!-- from access npm -->
+    <script src="/scripts/script.js"></script> <!-- widget developer -->
+
+    <script>
+
+        var e = document.getElementById('this');
+        WidgetManager.Instance.createWidget(e, 'Dashboard Widget');
+
+    </script>
+
+</body>
+</html>

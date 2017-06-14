@@ -23,6 +23,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Absence.Database", "Absence
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Absence.API", "Absence.API\Absence.API.csproj", "{5935E5AD-74F4-4AFC-84E8-7D9E21F26CC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateAbsenceWidget", "CreateAbsenceWidget\CreateAbsenceWidget.csproj", "{FBBE975A-5484-4620-82C2-CA71979C3D0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{5935E5AD-74F4-4AFC-84E8-7D9E21F26CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5935E5AD-74F4-4AFC-84E8-7D9E21F26CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5935E5AD-74F4-4AFC-84E8-7D9E21F26CC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBBE975A-5484-4620-82C2-CA71979C3D0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBBE975A-5484-4620-82C2-CA71979C3D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBBE975A-5484-4620-82C2-CA71979C3D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBBE975A-5484-4620-82C2-CA71979C3D0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,5 +74,6 @@ Global
 		{F3090930-017F-405C-96C1-21DA2E4B23B0} = {1BB048BD-6E38-4537-A9E4-E27CC6C6AF2C}
 		{2F25DC2A-5E9D-49C8-B399-4A1787B52D31} = {1BB048BD-6E38-4537-A9E4-E27CC6C6AF2C}
 		{5935E5AD-74F4-4AFC-84E8-7D9E21F26CC9} = {1BB048BD-6E38-4537-A9E4-E27CC6C6AF2C}
+		{FBBE975A-5484-4620-82C2-CA71979C3D0B} = {1BB048BD-6E38-4537-A9E4-E27CC6C6AF2C}
 	EndGlobalSection
 EndGlobal
