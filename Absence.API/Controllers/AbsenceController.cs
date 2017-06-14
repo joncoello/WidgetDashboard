@@ -9,10 +9,11 @@ using Absence.API.Models;
 namespace Absence.API.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Absence")]
+    [Route("api/holiday")]
     public class AbsenceController : Controller
     {
         [Route("")]
+        [HttpPost]
         public async Task<IActionResult> Post([FromBody]HolidayRequest holidayRequest)
         {
 
@@ -31,6 +32,7 @@ namespace Absence.API.Controllers
         }
 
         [Route("")]
+        [HttpGet]
         public async Task<IActionResult> Get()
         {
 

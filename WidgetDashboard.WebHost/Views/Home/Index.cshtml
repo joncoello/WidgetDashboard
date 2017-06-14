@@ -30,7 +30,7 @@
         <div class="toolbox-item">
             @widget.Name
             <div class="widget-template" name="@widget.Name" defaultwidth="@widget.Layout.Widh" defaultheight="@widget.Layout.Height" style="display: none">
-                @Html.Raw(widget.Template)
+                @Html.Raw(widget.Template) <!-- should use api call to reduce page size -->
             </div>
         </div>
     }
@@ -73,5 +73,54 @@
             @Html.Raw(widget.Script)
         </script>
     }
+
+
+    <script type="text/javascript">
+
+        // configure grid stack
+        $(function () {
+            var options = {
+                cell_height: 40,
+                vertical_margin: 10,
+                horizontal_margin: 10,
+                float: true,
+                acceptWidgets: true,
+                alwaysShowResizeHandle: true,
+                animate: true
+            };
+            $('.grid-stack').gridstack(options);
+        });
+
+        // toolbox item clicked
+        $('#toolbox .toolbox-item').click(function () {
+            console.log('toolbox item clicked: ' + event.target);
+
+            var clicked = $(event.target);
+            var templateElement = clicked.find('.widget-template').first();
+            var template = templateElement.html(); // todo: replace by api call
+
+            // dashboard grid
+            var grid = $('#mainArea .grid-stack').data('gridstack');
+
+            // wrapper html for gridstack component
+            var widgetMarkup = "<div class=\"grid-stack-item\"><div class=\"grid-stack-item-content\">" + template + "</div></div>";
+
+            var width = templateElement.attr("defaultwidth");
+            var height = templateElement.attr("defaultheight");
+
+            // gridstack api call
+            var widget = grid.addWidget(widgetMarkup, 0, 0, width, height);
+            var elementToUse = $(widget).find('.widget').first(); // requires widget developer to class their html with .widget
+
+            WidgetManager.Instance.createWidget(elementToUse, templateElement.attr("name"));
+
+            WidgetManager.Instance.refreshWidgets(); // todo: this loads all widget data - need to load just created one
+
+        });
+
+    </script>
+
+
+
 
 }

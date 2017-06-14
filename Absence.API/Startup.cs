@@ -25,7 +25,7 @@ namespace Absence.API
                     .AllowCredentials());
             });
 
-            //services.UseMvc();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,10 +40,7 @@ namespace Absence.API
 
             app.UseCors("CorsPolicy");
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseMvc();
         }
     }
 }
