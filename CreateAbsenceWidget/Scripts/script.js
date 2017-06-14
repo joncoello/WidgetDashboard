@@ -13,10 +13,17 @@
                 $.ajax({
                     url: 'http://localhost:14545/api/holiday',
                     type: "POST",
-                    data: { dateRange: dateInput.val() },
-                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({ dateRange: dateInput.val() }),
+                    contentType: "application/json",
                     dataType: "json",
                     success: function () {
+                        console.log("success");
+                    },
+                    error: function () {
+                        console.error("error");
+                    },
+                    complete: function () {
+                        console.log("complete");
                         WidgetManager.Instance.refreshWidgets();
                     }
                 });

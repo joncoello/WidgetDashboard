@@ -52,5 +52,10 @@ namespace Absence.API.Controllers
             return Ok(sortedStr);
 
         }
+
+        [Route("")]
+        [HttpOptions]
+        public void Options() { }
+
     }
 }

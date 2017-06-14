@@ -18,11 +18,11 @@ namespace Absence.API
         {
             services.AddCors(options =>
             {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials());
+                options.AddPolicy("AllowAllOrigins",
+                 builder =>
+                 {
+                     builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                 });
             });
 
             services.AddMvc();
@@ -38,7 +38,7 @@ namespace Absence.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors("CorsPolicy");
+            app.UseCors("AllowAllOrigins");
 
             app.UseMvc();
         }
