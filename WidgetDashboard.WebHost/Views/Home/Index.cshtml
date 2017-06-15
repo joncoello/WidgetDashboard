@@ -25,15 +25,19 @@
 
 @section toolboxitems{
 
-    @foreach (var widget in Model.Widgets)
-    {
-        <div class="toolbox-item">
-            @widget.Name
-            <div class="widget-template" name="@widget.Name" defaultwidth="@widget.Layout.Widh" defaultheight="@widget.Layout.Height" style="display: none">
-                @Html.Raw(widget.Template) <!-- should use api call to reduce page size -->
+    <div>
+        @foreach (var widget in Model.Widgets)
+        {
+            <div class="toolbox-item">
+                <i class="fa fa-cube fa-fw"></i>
+                &nbsp;
+                @widget.Name
+                <div class="widget-template" name="@widget.Name" defaultwidth="@widget.Layout.Widh" defaultheight="@widget.Layout.Height" style="display: none">
+                    @Html.Raw(widget.Template) <!-- should use api call to reduce page size -->
+                </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 }
 
 
@@ -103,7 +107,7 @@
             var grid = $('#mainArea .grid-stack').data('gridstack');
 
             // wrapper html for gridstack component
-            var widgetMarkup = "<div class=\"grid-stack-item\"><div class=\"grid-stack-item-content\">" + template + "</div></div>";
+            var widgetMarkup = "<div class=\"grid-stack-item\"><div class=\"grid-stack-item-content\"><div class=\"remove-widget\"><i class=\"fa fa-trash-o\"></i></div>" + template + "</div></div>";
 
             var width = templateElement.attr("defaultwidth");
             var height = templateElement.attr("defaultheight");
@@ -111,6 +115,10 @@
             // gridstack api call
             var widget = grid.addWidget(widgetMarkup, 0, 0, width, height);
             var elementToUse = $(widget).find('.widget').first(); // requires widget developer to class their html with .widget
+
+            $(widget).find('.remove-widget').click(function () {
+                grid.removeWidget(widget);
+            });
 
             WidgetManager.Instance.createWidget(elementToUse, templateElement.attr("name"));
 

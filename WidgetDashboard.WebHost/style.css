@@ -224,15 +224,16 @@ body {
 
 .container-main {
     padding-left: 200px;
-    padding-right: 300px;
+    padding-right: 200px;
 }
 
 .sidebar-right {
     right: 0;
     left: auto;
-    width: 300px;
+    width: 200px;
     padding-left: 10px;
     color: white;
+    font-size: 0.8em;
 }
 
 .burger {
@@ -257,10 +258,15 @@ body {
 
 .toolbox-item {
     border: 1px solid gray;
-    height: 50px;
+    height: 30px;
     margin-bottom: 10px;
     margin-right: 10px;
-    text-align: center;
-    padding-top: 10px;
+    padding-top: 5px;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.remove-widget{
+    float: right;
     cursor: pointer;
 }
