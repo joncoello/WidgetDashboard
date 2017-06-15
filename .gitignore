@@ -266,3 +266,4 @@ __pycache__/
 /DashboardWidget/wwwroot
 /DashboardWidget/Scripts/widget-component.js
 /DashboardWidget/Scripts/widget-component.ts
+/CreateAbsenceWidget/wwwroot
