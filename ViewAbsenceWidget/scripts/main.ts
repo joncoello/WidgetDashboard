@@ -4,6 +4,9 @@
         {
             id: 0,
             name: 'View Absence',
+            setupWidget: (e: Element) => {
+
+            },
             loadData: getHolidayData,
             saveCustomisation: (customisation: { [id: string]: any }): void => {
 
@@ -111,7 +114,7 @@
                 }
 
             }
-
+            
         });
     }
 

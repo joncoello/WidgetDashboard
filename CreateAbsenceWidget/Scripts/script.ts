@@ -4,8 +4,7 @@
         {
             id: 0,
             name: 'Create Absence',
-            loadData: (element: Element) => {
-
+            setupWidget: (element: Element) => {
                 var dateInput = $(element).find('input[name="daterange"]');
 
                 dateInput.daterangepicker({
@@ -38,7 +37,9 @@
                     //    WidgetManager.Instance.refreshWidgets();
                     //})
                 });
-
+            },
+            loadData: (element: Element) => {
+                
             },
             saveCustomisation: (customisation: { [id: string]: any }): void => {
 
