@@ -25,8 +25,8 @@ namespace DashboardWidget
         {
             return new WidgetLayout()
             {
-                Widh = 2,
-                Height = 2
+                Widh = 3,
+                Height = 5
             };
         }
 

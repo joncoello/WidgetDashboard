@@ -4,10 +4,13 @@
         {
             id: 0,
             name: 'Dashboard Widget',
-            loadData: (element: Element) => {
+            setupWidget: (element: Element) => {
                 $(element).find('button').click(function () {
                     alert('hello widget');
                 });
+            },
+            loadData: (element: Element) => {
+                
             },
             saveCustomisation: (customisation: { [id: string]: any }): void => {
                 

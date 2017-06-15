@@ -15,7 +15,8 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "@types/jquery": "^2.0.45"
+    "@types/jquery": "^2.0.45",
+    "@types/gridstack": "^0.0.35"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

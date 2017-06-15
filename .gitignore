@@ -273,3 +273,5 @@ __pycache__/
 /ViewAbsenceWidget/scripts/widget-component.ts
 /ViewAbsenceWidget/scripts/widget-component.js
 /ViewAbsenceWidget/scripts/main.js
+/DashboardWidget/Scripts/script.js
+/WidgetDashboard.WebHost/Scripts/main.js

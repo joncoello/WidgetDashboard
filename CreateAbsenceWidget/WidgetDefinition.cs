@@ -26,7 +26,7 @@ namespace CreateAbsenceWidget
             return new WidgetLayout()
             {
                 Widh = 3,
-                Height = 2
+                Height = 6
             };
         }
 
