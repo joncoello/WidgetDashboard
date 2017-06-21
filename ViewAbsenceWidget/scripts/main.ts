@@ -5,7 +5,10 @@
             id: 0,
             name: 'View Absence',
             setupWidget: (e: Element) => {
-
+                WidgetManager.Instance.registerSubscriber('absenceCreated', (message: any) => {
+                    console.log('absenceCreated event picked up by view absence');
+                    getHolidayData(e);
+                });
             },
             loadData: getHolidayData,
             saveCustomisation: (customisation: { [id: string]: any }): void => {

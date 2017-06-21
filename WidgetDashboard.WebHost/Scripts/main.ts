@@ -41,3 +41,15 @@ $('#toolbox .toolbox-item').click(function () {
     WidgetManager.Instance.createWidget(elementToUse.get(0), templateElement.attr("name"));
             
 });
+
+$('#saveLayout').click(function () {
+
+    alert('save');
+
+});
+
+$('#loadLayout').click(function () {
+
+    alert('load');
+
+});

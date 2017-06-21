@@ -29,7 +29,7 @@
                         },
                         complete: function () {
                             console.log("complete");
-                            WidgetManager.Instance.refreshWidgets();
+                            WidgetManager.Instance.raiseEvent('absenceCreated', {});
                         }
                     })
 
