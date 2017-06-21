@@ -38,6 +38,9 @@
                     //})
                 });
             },
+            removeWidget: (element: Element) => {
+
+            },
             loadData: (element: Element) => {
                 
             },

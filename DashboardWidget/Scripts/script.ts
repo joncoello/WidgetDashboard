@@ -9,6 +9,9 @@
                     alert('hello widget');
                 });
             },
+            removeWidget: (element: Element) => {
+
+            },
             loadData: (element: Element) => {
                 
             },

@@ -5,10 +5,10 @@
             id: 0,
             name: 'View Absence',
             setupWidget: (e: Element) => {
-                WidgetManager.Instance.registerSubscriber('absenceCreated', (message: any) => {
-                    console.log('absenceCreated event picked up by view absence');
-                    getHolidayData(e);
-                });
+                WidgetManager.Instance.registerSubscriber('absenceCreated', { instanceElement: e, callback: absenceCreated });
+            },
+            removeWidget: (e: Element) => {
+                WidgetManager.Instance.unregisterSubscriber('absenceCreated', { instanceElement: e, callback: absenceCreated });
             },
             loadData: getHolidayData,
             saveCustomisation: (customisation: { [id: string]: any }): void => {
@@ -119,6 +119,11 @@
             }
             
         });
+    }
+
+    function absenceCreated(message: any, element: Element): void {
+        console.log('absenceCreated event picked up by view absence');
+        getHolidayData(element);
     }
 
     WidgetManager.Instance.registerWidget(widget1);

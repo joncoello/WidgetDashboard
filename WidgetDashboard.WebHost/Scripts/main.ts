@@ -33,13 +33,13 @@ $('#toolbox .toolbox-item').click(function () {
     // gridstack api call
     var widget = grid.addWidget(widgetMarkup, 0, 0, width, height);
     var elementToUse = $(widget).find('.widget').first(); // requires widget developer to class their html with .widget
+    var instance = WidgetManager.Instance.createWidget(elementToUse.get(0), templateElement.attr("name"));
 
     $(widget).find('.remove-widget').click(function () {
         grid.removeWidget(widget.get(0));
+        instance.widgetType.removeWidget(instance.element);
     });
-
-    WidgetManager.Instance.createWidget(elementToUse.get(0), templateElement.attr("name"));
-            
+        
 });
 
 $('#saveLayout').click(function () {
